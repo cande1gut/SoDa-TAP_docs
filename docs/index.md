@@ -1,0 +1,9 @@
+---
+hide:
+  - toc
+---
+
+# Architecture
+
+
+
