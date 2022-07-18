@@ -19,9 +19,9 @@
 # IN THE SOFTWARE.
 
 # Project information
-site_name: Material for MkDocs
-site_url: https://squidfunk.github.io/mkdocs-material/
-site_author: Martin Donath
+site_name: SoDa-TAP
+site_url: https://sodatap.ml/en/latest/
+site_author: Candelario Gutierrez
 site_description: >-
   Create a branded static site from a set of Markdown files to host the
   documentation of your Open Source or commercial project
