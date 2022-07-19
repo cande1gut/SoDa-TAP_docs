@@ -20,17 +20,16 @@
 
 # Project information
 site_name: SoDa-TAP
-site_url: https://www.sodatap.ml/en/latest/
+site_url: https://www.sodatap.ml/
 site_author: Candelario Gutierrez
 site_description: >-
-  Create a branded static site from a set of Markdown files to host the
-  documentation of your Open Source or commercial project
+  SoDa-TAP documentation
 # Repository
-repo_name: squidfunk/mkdocs-material
-repo_url: https://github.com/squidfunk/mkdocs-material
+repo_name: cande1gut/SoDa-TAP_docs
+repo_url: https://github.com/cande1gut/SoDa-TAP_docs
 
 # Copyright
-copyright: Copyright &copy; 2016 - 2022 Martin Donath
+copyright: Copyright &copy; 2022 Candelario Gutierrez
 
 # Configuration
 theme:
@@ -68,55 +67,50 @@ theme:
     # - toc.integrate
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: deep orange
+      accent: deep orange
       toggle:
-        icon: material/brightness-7
+        icon: material/lightbulb
         name: Switch to dark mode
     - scheme: slate
       primary: indigo
       accent: indigo
       toggle:
-        icon: material/brightness-4
+        icon: material/lightbulb-outline
         name: Switch to light mode
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/favicon.png
+  favicon: assets/images/favicon.png
   icon:
     logo: logo
+  logo: assets/images/logo.png
 
 # Plugins
 plugins:
   - search
-  - redirects:
-      redirect_maps:
-        changelog/insiders.md: insiders/changelog.md
-        conventions.md: philosophy.md
-        reference/abbreviations.md: reference/tooltips.md
-        reference/meta-tags.md: reference/index.md
-        reference/variables.md: https://mkdocs-macros-plugin.readthedocs.io/
-        sponsorship.md: insiders/index.md
-        upgrading.md: upgrade.md
+  #- redirects:
+  #    redirect_maps:
+        #changelog/insiders.md: insiders/changelog.md
+        #conventions.md: philosophy.md
+        #reference/abbreviations.md: reference/tooltips.md
+        #reference/meta-tags.md: reference/index.md
+        #reference/variables.md: https://mkdocs-macros-plugin.readthedocs.io/
+        #sponsorship.md: insiders/index.md
+        #upgrading.md: upgrade.md
   - minify:
       minify_html: true
 
 # Customization
 extra:
-  analytics:
-    provider: google
-    property: !ENV GOOGLE_ANALYTICS_KEY
+  #analytics:
+  #  provider: google
+  #  property: !ENV GOOGLE_ANALYTICS_KEY
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/squidfunk
-    - icon: fontawesome/brands/gitter
-      link: https://gitter.im/squidfunk/mkdocs-material
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/squidfunk/mkdocs-material/
-    - icon: fontawesome/brands/python
-      link: https://pypi.org/project/mkdocs-material/
+      link: https://github.com/cande1gut/
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/squidfunk
+      link: https://twitter.com/cande_gut
 
 # Extensions
 markdown_extensions:
@@ -144,8 +138,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+      user: cande1gut
+      repo: SoDa-TAP_docs
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:
@@ -212,66 +206,3 @@ nav:
     - Lists: reference/lists.md
     - MathJax: reference/mathjax.md
     - Tooltips: reference/tooltips.md
-  - Insiders:
-    - insiders/index.md
-    - Getting started:
-      - Installation: insiders/getting-started.md
-      - Changelog: insiders/changelog.md
-  - Blog:
-    - blog/index.md
-    - 2022:
-      - blog/2022/chinese-search-support.md
-    - 2021:
-      - blog/2021/the-past-present-and-future.md
-      - blog/2021/excluding-content-from-search.md
-      - blog/2021/search-better-faster-smaller.md
-
-site_name: SoDa-TAP
-markdown_extensions:
-  - meta
-plugins:
-  - search:
-      lang: en
-copyright: Copyright &copy; 2022 - Candelario Gutierrez
-extra:
-  social:
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/cande_gut
-    - icon: fontawesome/brands/github
-      link: https://github.com/cande1gut
-repo_url: https://github.com/cande1gut/html5-boilerplate
-repo_name: cande1gut/html5-boilerplate
-edit_uri: ""
-theme:
-  icon:
-    repo: fontawesome/brands/github
-  language: en 
-  name: material
-  features:
-    - navigation.instant
-    - navigation.tracking
-    - navigation.sections
-    - navigation.expand
-    - navigation.indexes
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - header.autohide
-  palette:
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: deep orange
-      accent: red
-      toggle:
-        icon: material/lightbulb
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: red
-      toggle:
-        icon: material/lightbulb-outline
-        name: Switch to light mode

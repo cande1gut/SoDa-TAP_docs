@@ -1,9 +1,6 @@
 ---
-hide:
-  - toc
+template: overrides/home.html
 ---
-
-# Architecture
 
 
 
