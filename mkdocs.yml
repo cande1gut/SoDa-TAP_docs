@@ -34,7 +34,7 @@ copyright: Copyright &copy; 2022 Candelario Gutierrez
 # Configuration
 theme:
   name: null
-  custom_dir: !ENV [THEME_DIR, "material"]
+  custom_dir: material #!ENV [THEME_DIR, "material"]
 
   # Static files
   static_templates:
