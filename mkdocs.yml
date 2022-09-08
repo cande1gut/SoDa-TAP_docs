@@ -25,7 +25,7 @@ site_author: Candelario Gutierrez
 site_description: >-
   SoDa-TAP documentation
 # Repository
-repo_name: cande1gut/SoDa-TAP_docs
+repo_name: cande1gut/SoDa-TAP
 repo_url: https://github.com/cande1gut/SoDa-TAP
 
 # Copyright
@@ -139,7 +139,7 @@ markdown_extensions:
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: cande1gut
-      repo: SoDa-TAP_docs
+      repo: SoDa-TAP
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:
