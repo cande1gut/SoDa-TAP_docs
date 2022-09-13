@@ -65,9 +65,9 @@ Think of Kafka like a warehouse. On one side of this warehouse, supplies (or dat
 ### Spark
 We are running Spark Jobs in python from a jupyter notebook. This docker container was also taken from [SoDaTAP](https://github.com/cande1gut/SoDa-TAP). The only changes from SoDaTAP's system are the notebooks we use. Currently we are running three notebooks to handle the three incoming topics.
 
-- [session_event_ingest.ipynb](attachments/session_event_ingest.ipynb)
-- [session_frame_ingest.ipynb](attachments/session_frame_ingest.ipynb)
-- [session_meta_ingest.ipynb](attachments/session_meta_ingest.ipynb)
+- [session_event_ingest.ipynb](https://github.com/SheldonRoberts/Virtual-Gym-Documentation/blob/main/attachments/session_event_ingest.ipynb)
+- [session_frame_ingest.ipynb](https://github.com/SheldonRoberts/Virtual-Gym-Documentation/blob/main/attachments/session_frame_ingest.ipynb)
+- [session_meta_ingest.ipynb](https://github.com/SheldonRoberts/Virtual-Gym-Documentation/blob/main/attachments/session_meta_ingest.ipynb)
 
 To run these notebooks, refer to the SoDaTAP GitHub documentation.
 
