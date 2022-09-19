@@ -5,7 +5,7 @@ title: AI4Buzz
 
 # AI4Buzz
 
-The purpose of this project is to analyze and visualize Twitter conversations around energy concepts. In this case and extensibily, the energy east pipeline cancellation (October 7th, 2015).
+The purpose of this project is to analyze and visualize Twitter conversations around energy concepts. In this case and extensibily, the energy east pipeline cancellation (October 5th, 2017).
 
 ## Components
 
