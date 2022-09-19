@@ -470,3 +470,21 @@ The following is a sequence diagram of how all the services interact when deploy
 </figure>
 
 [^1]: At the start of the automatic deployment of the environment, the tweets will be already available in the csvTweets topic, ready to be consumed by the spark project in the JupyterLab notebook.
+
+## Statistical Analysis Toolkit
+
+As part of the SoDa-TAP platform, there is a [notebook] to be able to run [ANOVA] tests or for future expansion for more statistical analysis tests with the use of the [statsmodels] package.
+
+<figure markdown>
+  ![Image title](../assets/images/anova.PNG)
+  <figcaption>Example of simple ANOVA</figcaption>
+</figure>
+
+<figure markdown>
+  ![Image title](../assets/images/anova2.PNG)
+  <figcaption>Example of 2-way ANOVA</figcaption>
+</figure>
+
+  [notebook]: https://github.com/cande1gut/SoDa-TAP/blob/main/notebooks/StatisticalToolkit.ipynb
+  [ANOVA]: https://www.simplypsychology.org/anova.html
+  [statsmodels]: https://www.statsmodels.org/stable/index.html
