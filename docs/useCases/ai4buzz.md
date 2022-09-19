@@ -13,6 +13,7 @@ The purpose of this project is to analyze and visualize Twitter conversations ar
 2. [Twitter client].
 3. [APIs].
 4. [Webpage and custom visualizations]: A main Wordpress site is externally hosted and each visualization is served through their own implemented [HTML template].
+5. [External data parsing]: A notebook to do direct socket connection to CrateDB to fetch all data in a table.
 
     [CrateDB, Kafka, and JupyterLab]: https://www.sodatap.ml/en/latest/architecture/deployment/#own-environment
     [APIs]: https://github.com/cande1gut/SoDa-TAP/tree/main/APIs
@@ -21,6 +22,7 @@ The purpose of this project is to analyze and visualize Twitter conversations ar
     [Statistical Toolkit]: https://github.com/cande1gut/SoDa-TAP/blob/main/notebooks/StatisticalToolkit.ipynb
     [Webpage and Custom Visualizations]: https://ai4buzz.ca/
     [HTML template]: https://github.com/cande1gut/cecn-visualizations/tree/main/socket/cecn
+    [External data parsing]: https://github.com/cande1gut/SoDa-TAP/blob/main/notebooks/DataParsing.ipynb
 
 ## Deployment
 
@@ -30,3 +32,9 @@ All components are served as Docker containers in order to make things easier an
 2. The Twitter client can be individually run or be used inside of the JupyterLab container in order to fetch the tweets that need to be analysed.
 3. The APIs need to be deployed before the visualizations, so that the database can be accessed to request for the processed data.
 4. The visualizations need to be deployed as a nginx container in order to serve all the HTML templates per energy type.
+
+## Analyses
+
+### Tweets
+
+### Users
