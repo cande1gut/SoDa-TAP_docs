@@ -383,7 +383,7 @@ Next, click "Upload connector config file":
   <figcaption>New Kafka Connector</figcaption>
 </figure>
 
-Select the JSON file that is available at the root of this repository called "connector_csv". Once uploaded, it will populate the necessary fields for the connector with the name of the topic previously created:
+Select the JSON file that is available at the root of this repository called "connector_csv". Once uploaded, it will populate the necessary fields for the connector with the name of the topic previously created[^1]:
 
 <figure markdown>
   ![Image title](../assets/images/kafka-config2.PNG)
@@ -401,7 +401,7 @@ The topic should now have all tweets ingested in the topic. The next step is to 
 
 ## Testing the Pipeline
 
-To enable developers adapt the code accordignly to their needs, there is a JupyterLab container available to restart as many times as wanted to test the spark pipeline [^1]. In the command line, access to the virtual machine by typing:
+To enable developers adapt the code accordignly to their needs, there is a JupyterLab container available to restart as many times as wanted to test the spark pipeline [^2]. In the command line, access to the virtual machine by typing:
 
   ``` bash
   vagrant ssh
@@ -469,7 +469,8 @@ The following is a sequence diagram of how all the services interact when deploy
   <figcaption>Sequence Diagram of SoDa-TAP</figcaption>
 </figure>
 
-[^1]: At the start of the automatic deployment of the environment, the tweets will be already available in the csvTweets topic, ready to be consumed by the spark project in the JupyterLab notebook.
+[^1]: Make sure that you have an already created CSV in the "unprocessed" folder, so that the connector is able to be initialized.
+[^2]: At the start of the automatic deployment of the environment, the tweets will be already available in the csvTweets topic, ready to be consumed by the spark project in the JupyterLab notebook.
 
 ## Statistical Analysis Toolkit
 
@@ -488,3 +489,9 @@ As part of the SoDa-TAP platform, there is a [notebook] to be able to run [ANOVA
   [notebook]: https://github.com/cande1gut/SoDa-TAP/blob/main/notebooks/StatisticalToolkit.ipynb
   [ANOVA]: https://www.simplypsychology.org/anova.html
   [statsmodels]: https://www.statsmodels.org/stable/index.html
+
+## Recommendations
+
+1. To create an automated schema you can create a temporal CSV file and topic that are needed to be processed, in order to just extract the schema from the temporal file and read it with the temporal topic.
+2. Do a data partition of the Spark dataframe based on the golden rule: No. of cores x 4
+3. Allocate enough memory for Kafka, CrateDB and Spark, so that they are able to run under the same machine without problems.
