@@ -12,7 +12,7 @@ Users play Virtual Gym on a VR headset. We have mostly worked with the Oculus Qu
 
 ## Pipeline Diagram
 <figure markdown>
-  ![Image title](../assets/images/pipeline.png)
+  ![Image title](../assets/images/vg_pipeline.png)
 </figure>
 
 ### Virtual Gym Oculus
@@ -26,7 +26,7 @@ This API was created by editing the [SoDaTap API docker container](https://githu
 
 *In the future we will want HTTPS secure connections instead of HTTP. For a website to be HTTPS, it's API calls must also be HTTPS. That will require getting a certificate and adjusting the CORS policy.
 
-The WebSocket is handled by the function below. Since the API is currently hosted on the IP http://129.128.184.214:8099, we use <a>ws://129.128.184.214:8099/ws</a> as the url for websocket connections. To test these endpoints, I recommend using [postman](https://www.postman.com/). This function waits for a websocket message JSON object. The object should have a "*type*" (frame, event, or session) and a "*content*" object. The content will be sent to the kafka topic of the corresponding type.
+The WebSocket is handled by the function below. Since the API is currently hosted on the IP http://129.128.184.214:8100, we use <a>ws://129.128.184.214:8100/ws</a> as the url for websocket connections. To test these endpoints, I recommend using [postman](https://www.postman.com/). This function waits for a websocket message JSON object. The object should have a "*type*" (frame, event, or session) and a "*content*" object. The content will be sent to the kafka topic of the corresponding type.
 
 ```python
 @app.websocket("/ws")
