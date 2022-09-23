@@ -72,12 +72,21 @@ We are running Spark Jobs in python from a jupyter notebook. This docker contain
 To run these notebooks, refer to the SoDaTAP GitHub documentation.
 
 ### CrateDB
-CrateDB currently functions as our long term storage database for all records. There should eventually be an extra step to regularly send data dumps from CrateDB into a Postgres database for cold storage. We run our instance of CrateDB from the docker image on the SoDaTAP repository. 
+CrateDB currently functions as our long term storage database for all incoming sessions, session frames and event frames. In the CrateDB dashboard you can see the tables created by Spark. This CrateDB database works as the first entry point for the session data captured by the Oculus headset. Eventually, we derive useful information from the captured sessions, and dump them in our secured PostgreSQL database hosted locally on the server. As of this time, the crateDB dashboard has a [public URL](http://129.128.184.214:4200).
 
-As of August 16, 2022, the crateDB dashboard has a [public URL](http://129.128.184.214:4200). This *IS* a security concern that must be addressed before storing data on actual users. From this dashboard we can check to see if new data is coming in, as well as run some basic SQL commands.
+### Derivation of Metrics
+Based on the Session information saved directly from Oculus, meaningful metrics are calculated for each session that has been completed. Currently, we do not have the completion check step implemented, but it is a work in progress. The idea is simple, after each session is completed, we measure the metrics both **Functional Mobility** and **Game Specific** ones. If the session is not completed or interrupted or corrupted, we do not measure anything for that session.
 
-### Admin Dashboard
-The admin dashboard was developed using streamlit. Streamlit is a python package that allows us to rapidly iterate a protoype for displaying new metrics. Streamlit sites lack customization and security. For those reasons, the admin dashboard is a temporary tool only to be used for development. It's currently offline and saved on the Server PC in the lab. If you ever need to sign in: username: admin, password: admin.
+The metrics that are implemented can be found on the Virtual Gym server under /Desktop/vgDockers/APIs/app/queries.py. If new metrics are to be incorporated, this very file can be treated as a standard. All of these metrics calculating methods are set up to be communicated through the FastAPI right now where we can pass a session id and the corresponding results are returned as a JSON object.
+
+_Functional Mobility_ metrics are directly related to the players' movement tracking. Currently we are tracking different measurements from a player's **Head, Hand, & Eye** movement. _Game Specific_ metrics are players' performance related metrics which directly indicates how the player has done in a game session. For instance, for _Party Balloons_ game, we are measuring **Total no. of Balloons Appeared, Total no. of interaction, Successful no. of interaction**.
+
+### POSTGRESQL DATABASE
+
+Our more securedly maintained database is a postgres one. We only keep useful metrics information on the postgres rather than dumping what we have in CrateDB. The idea here is to make the data streaming flexible to work feasibly with CrateDB, and then only the necessary information for the client dashboard are put in POSTGRES for easy manipulation and fetching. The postgres does not have a public url, rather it is hosted locally on our virtual gym server.
+
+We have a continuous function deployed on the virtual gym server which can calculate the different metrics for a session after it is completed only. For now, we only have game specific metrics for the _Party Balloons_ game. Th function figures out which session has been completed but does not have any metrics calculated in the PostgreSQL database. It calculates them and adds them into the PSQL database.
+
 
 ### FastAPI (for website data)
 The same API from *Step 3* is being used to send JSON data to the dashboard website for users to visualize their data. Here is an example of an endpoint that takes in a username, start date, and end date. It returns a list of session objects.
@@ -110,20 +119,17 @@ And here is an example of the JSON that gets returned. [http://129.128.184.214:8
     "Version":"3.1"
 }
 ```
-The data is then fetched from this url on the React.JS front end. Here is what it currently looks like on the front end:
-<figure markdown>
-  ![Image title](../assets/images/Clipboard_2022-08-17-11-48-11.png)
-</figure>
 
-So to add a new feature to the website you must:
+To add new feature with data from database, one needs to-
+
 1. Make an API endpoint to request data
 2. Fetch that data in the Client Dashboard project.
-3. Use React to create a component that visualizes the data.
+3. Visualize the fetched data
 
 ### Client Dashboard
-Currently we are hosting the dashboard on our own server. It would be nice to host it on the free Firebase plan, but that requires all of our API calls to be HTTPS. We need to add SSL certification to the server before hosting on Firebase. As of August 17, 2022 the website is hosted [here](http://129.128.184.214:8099/)
+Previously, we were hosting the dashboard on our own server. It would be nice to host it on the free Firebase plan, but that requires all of our API calls to be HTTPS. We need to add SSL certification to the server before hosting on Firebase. As of August 17, 2022 the website is hosted [here](http://129.128.184.214:8099/). The plan for the client dashboard was a website for users of Virtual Gym to make an account and view their information / statistics. The front end was made with React and Typescript. The user authentication was handled by Firebase. The plan was to have new users sign up on the website. When they open the Virtual Gym app, they are prompted to sign in. We used the Firebase API to confirm a user exists in our system and has the necessary authorization to play. After their session, they can go back to the website to see in-depth analysis.
 
-The client dashboard is a website for users of Virtual Gym to make an account and view their information / statistics. The front end is made with React and Typescript. The user authentication is handled by Firebase. The plan is to have new users sign up on the website. When they open the Virtual Gym app, they are prompted to sign in. We will use the Firebase API to confirm a user exists in our system and has the necessary authorization to play. After their session, they can go back to the website to see in-depth analysis.
+***For now, we are switching our front-end to align with the front-end from VIBRANT MIND.***
 
 ### Firebase Authentication
 All of our user authentication data is stored on Firebase. The Firebase dashboard allows you to view, edit, and remove user profiles. Firebase has APIs for web, mobile, Unity, etc. The API can handle registration, login, password reset, and pretty much anything else we will require for user auth. 
