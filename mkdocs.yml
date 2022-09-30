@@ -162,6 +162,6 @@ nav:
   - Use Cases:
     - AI4Buzz: useCases/ai4buzz.md
     - Virtual Gym: useCases/virtualGym.md
-    - Mental Health: useCases/mentalHealth.md
-  - References:
-    - references/index.md
+    #- Mental Health: useCases/mentalHealth.md
+  #- References:
+  #  - references/index.md

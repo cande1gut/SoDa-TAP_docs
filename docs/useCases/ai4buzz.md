@@ -55,3 +55,17 @@ The pipeline that is followed for the analysis depends on what it is desired to 
   ![Image title](../assets/images/dataflow.gif)
   <figcaption>Data Processing</figcaption>
 </figure>
+
+### JupyterLab Directories
+
+The main directories, notebooks and resources for this project you will find them under the VM in the folders "allEnergies[organized]", "datasets_etl" and "energyeast".
+
+<figure markdown>
+  ![Image title](../assets/images/directories.PNG)
+  <figcaption>Project Directories</figcaption>
+</figure>
+
+<figure markdown>
+  ![Image title](../assets/images/files.PNG)
+  <figcaption>Files Project</figcaption>
+</figure>

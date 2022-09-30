@@ -490,6 +490,25 @@ As part of the SoDa-TAP platform, there is a [notebook] to be able to run [ANOVA
   [ANOVA]: https://www.simplypsychology.org/anova.html
   [statsmodels]: https://www.statsmodels.org/stable/index.html
 
+## Clustering
+
+An extra component to do clustering whether by time windows or for a complete dataset, there is code as a [notebook] and as a [script], that has all of the steps that prepares the data by parsing it and later on use [GloVe] to convert the text into word embeddings. To later apply an [agglomerative clustering] that will classify users into their respective cluster number. This code can be applied to any type of text data and in this case, SoDa-TAP applies it over the cummulative set of tweets per user. 
+
+<figure markdown>
+  ![Image title](../assets/images/clusters.PNG)
+  <figcaption>Example of Clusters Bars</figcaption>
+</figure>
+
+<figure markdown>
+  ![Image title](../assets/images/clusters2.PNG)
+  <figcaption>Example of Dataframe with Clusters Tags</figcaption>
+</figure>
+
+  [notebook]: https://github.com/cande1gut/SoDa-TAP/blob/main/notebooks/UserClustering.ipynb
+  [script]: https://github.com/cande1gut/SoDa-TAP/blob/main/notebooks/UsersClusteringScript.py
+  [GloVe]: https://nlp.stanford.edu/projects/glove/
+  [agglomerative clustering]: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html
+
 ## Recommendations
 
 1. To create an automated schema you can create a temporal CSV file and topic that are needed to be processed, in order to just extract the schema from the temporal file and read it with the temporal topic.
